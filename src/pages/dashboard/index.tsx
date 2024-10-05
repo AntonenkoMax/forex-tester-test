@@ -15,14 +15,18 @@ const Dashboard: React.FC = () => {
 
   const dispatch = useAppDispatch();
 
-  const getDataParams = { tags: "front_page", hitsPerPage: 10 };
-
   useEffect(() => {
-    dispatch(getData(getDataParams));
+    dispatch(getData({ tags: "front_page", hitsPerPage: 10 }));
   }, [dispatch]);
 
   const handlePageClick = (selectedItem: { selected: number }) => {
-    dispatch(getData({ ...getDataParams, page: selectedItem.selected }));
+    dispatch(
+      getData({
+        tags: "front_page",
+        hitsPerPage: 10,
+        page: selectedItem.selected,
+      }),
+    );
     scrollToTop();
   };
 
