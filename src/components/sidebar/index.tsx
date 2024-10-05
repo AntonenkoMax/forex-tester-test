@@ -45,7 +45,7 @@ const SideBar = () => {
           console.log("Log Out!!!");
         }}
       >
-        Go Home
+        Log Out!!!
       </Button>
     </StyledSideBar>
   );

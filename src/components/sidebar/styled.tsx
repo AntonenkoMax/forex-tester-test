@@ -30,9 +30,8 @@ export const StyledSideBarNavigateItem = styled(Flex)<SideBarNavItemProps>`
   font-weight: 700;
   font-size: 14px;
   border-right: ${({ isActive }) =>
-    isActive
-      ? `1px solid ${baseColors.white}`
-      : `1px solid ${baseColors.border}`};
+    isActive ? `1px solid ${baseColors.white}` : `1px solid transparent`};
+  cursor: pointer;
 
   &:hover {
     background-color: ${baseColors.primaryHover};
@@ -42,7 +41,6 @@ export const StyledSideBarNavigateItem = styled(Flex)<SideBarNavItemProps>`
 export const StyledSideBarItemsList = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 40px;
   margin-bottom: 40px;
   border-radius: 8px;
   overflow: hidden;

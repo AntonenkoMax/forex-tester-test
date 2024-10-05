@@ -6,4 +6,6 @@ export enum baseColors {
   white = "#FFFFFF",
   border = "#3f444d",
   disabled = "#23272f",
+  light = "#e8eaee",
+  green = "#3ab490",
 }

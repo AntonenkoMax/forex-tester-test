@@ -6,3 +6,5 @@ export { default as Button } from "./button/index";
 export { EmptyDataMessage } from "./empty-states";
 export { MainOutlet } from "./outlets";
 export { default as SideBar } from "./sidebar";
+export { default as Header } from "./header";
+export { default as Footer } from "./footer";
