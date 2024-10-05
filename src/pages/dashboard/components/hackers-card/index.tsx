@@ -9,9 +9,13 @@ import {
   StyledNameSubject,
   StyledDate,
 } from "./styled";
+import { deleteHit } from "store/hacker-news";
+import { useAppDispatch } from "store/store";
 
 const HackersCard: React.FC<HackersCardProps> = ({ hit }) => {
   const [isActive, setIsActive] = useState(false);
+
+  const dispatch = useAppDispatch();
 
   const clickPrevent = (e: React.MouseEvent) => {
     if (isActive) {
@@ -64,7 +68,15 @@ const HackersCard: React.FC<HackersCardProps> = ({ hit }) => {
               </Flex>
 
               <Flex flexDirection="column" justifyContent="center">
-                <Button onClick={clickPrevent}>-FlexBox skills</Button>
+                <Button
+                  color="red"
+                  onClick={(e: React.MouseEvent) => {
+                    clickPrevent(e);
+                    dispatch(deleteHit(hit.created_at_i));
+                  }}
+                >
+                  Delete
+                </Button>
               </Flex>
             </Flex>
           </Flex>

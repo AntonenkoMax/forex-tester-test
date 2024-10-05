@@ -17,6 +17,17 @@ const hackersNewsSlice = createSlice({
     resetHackersNews: () => {
       return initialState;
     },
+    deleteHit: (state, action) => {
+      if (state.data) {
+        const res = state.data.hits.filter((hit) => {
+          if (hit.created_at_i !== action.payload) {
+            return hit;
+          }
+        });
+
+        state.data = { ...state.data, hits: res };
+      }
+    },
   },
 
   extraReducers: (builder) => {
@@ -39,6 +50,6 @@ const hackersNewsSlice = createSlice({
   },
 });
 
-export const { resetHackersNews } = hackersNewsSlice.actions;
+export const { resetHackersNews, deleteHit } = hackersNewsSlice.actions;
 
 export default hackersNewsSlice;
