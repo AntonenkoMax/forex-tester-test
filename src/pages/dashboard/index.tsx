@@ -19,7 +19,7 @@ const Dashboard: React.FC = () => {
 
   useEffect(() => {
     dispatch(getData(getDataParams));
-  }, [dispatch]);
+  }, [dispatch, getDataParams]);
 
   const handlePageClick = (selectedItem: { selected: number }) => {
     dispatch(getData({ ...getDataParams, page: selectedItem.selected }));

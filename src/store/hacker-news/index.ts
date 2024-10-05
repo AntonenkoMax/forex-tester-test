@@ -19,11 +19,9 @@ const hackersNewsSlice = createSlice({
     },
     deleteHit: (state, action) => {
       if (state.data) {
-        const res = state.data.hits.filter((hit) => {
-          if (hit.created_at_i !== action.payload) {
-            return hit;
-          }
-        });
+        const res = state.data.hits.filter(
+          (hit) => hit.created_at_i !== action.payload,
+        );
 
         state.data = { ...state.data, hits: res };
       }
