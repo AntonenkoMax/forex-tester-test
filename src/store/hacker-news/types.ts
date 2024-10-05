@@ -30,4 +30,6 @@ export interface Hit {
 
 export interface getDataPayload {
   tags: string;
+  hitsPerPage?: number;
+  page?: number;
 }

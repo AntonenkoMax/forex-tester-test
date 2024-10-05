@@ -8,4 +8,5 @@ export enum baseColors {
   disabled = "#23272f",
   light = "#e8eaee",
   green = "#3ab490",
+  transparent = "transparent",
 }
