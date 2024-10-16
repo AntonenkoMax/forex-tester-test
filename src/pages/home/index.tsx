@@ -80,6 +80,8 @@ class ChartComponent extends React.Component {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
     this.bars.forEach((bar, index) => {
       const x = index * this.scaleX * this.zoomFactor + this.offsetX;
       const yHigh =
@@ -130,6 +132,7 @@ class ChartComponent extends React.Component {
   }
 
   onDrag(event: MouseEvent) {
+    // console.log("123");
     if (this.isDragging) {
       const dx = event.clientX - this.lastX; // Зміщення миші
       this.offsetX += dx; // Змінюємо зсув по X
