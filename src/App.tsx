@@ -11,8 +11,26 @@ import { shouldForwardProp } from "utils/helpers";
 
 import { GlobalStyle } from "./styles";
 import "react-toastify/dist/ReactToastify.css";
+import { useEffect } from "react";
 
 const Root: React.FC = () => {
+  // useEffect(() => {
+  //   // window.addEventListener("mousemove", handleMouseMove);
+  //   window.addEventListener("wheel", handleWheel);
+  //
+  //   return () => {
+  //     window.removeEventListener("mousemove", handleMouseMove);
+  //   };
+  // }, []);
+
+  const handleMouseMove = () => {
+    console.log("handleMouseMove");
+  };
+
+  const handleWheel = () => {
+    console.log("handleWheel");
+  };
+
   return (
     <div>
       <GlobalStyle />
