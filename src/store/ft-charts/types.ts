@@ -1,44 +1,39 @@
-import { ErrorResult } from "../../services/types";
+import { ErrorResult } from "services/types";
 
 export interface UserState {
   error: ErrorResult | null;
   pending: boolean;
-  charts: any | null;
+  charts: ChartsResponse[];
 }
 
-export interface UserResponse {
-  id: string;
-  login: string;
-  name: string | null;
-  public_repos: number | null;
-  created_at: string;
+export interface ChartsResponse {
+  Bars: Bar[];
+  ChunkStart: number;
 }
 
-export type UserIdPayload = string;
-
-export interface Repository {
-  html_url: string;
-  name: string;
+export interface Bar {
+  Close: number;
+  High: number;
+  Low: number;
+  Open: number;
+  TickVolume: number;
+  Time: number;
 }
 
-export enum SortEnum {
-  CREATED = "created",
-  UPDATED = "updated",
-  PUSHED = "pushed",
-  FULL_NAME = "full_name",
+export interface ChartsPayload {
+  Broker: BrokerEnum;
+  Symbol: SymbolEnum;
+  Timeframe: number;
+  Start: number;
+  End: number;
+  UseMessagePack: boolean;
 }
 
-export interface getUserRepositoriesPayload {
-  userName: UserIdPayload;
-  sort?: SortEnum;
-  per_page?: number;
+export enum BrokerEnum {
+  ADVANCED = "Advanced",
 }
 
-export interface getLanguagesPayload {
-  userName: UserIdPayload;
-  repositories: Repository[];
-}
-
-export interface getLanguagesResponse {
-  [key: string]: number;
+export enum SymbolEnum {
+  EURUSD = "EURUSD",
+  USDJPY = "USDJPY",
 }

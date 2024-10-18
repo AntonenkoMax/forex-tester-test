@@ -5,11 +5,11 @@ import { getCharts } from "./actions";
 const initialState: UserState = {
   error: null,
   pending: false,
-  charts: null,
+  charts: [],
 };
 
 const chartsSlice = createSlice({
-  name: "ft-charts",
+  name: "ftCharts",
   initialState: {
     ...initialState,
   },
@@ -22,7 +22,7 @@ const chartsSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getCharts.fulfilled, (state, action) => {
-        // state.profile = action.payload;
+        state.charts = action.payload;
         state.pending = false;
         state.error = null;
       })
@@ -31,7 +31,7 @@ const chartsSlice = createSlice({
       })
       .addCase(getCharts.rejected, (state, action) => {
         if (action.payload) {
-          // state.profile = initialState.profile;
+          state.charts = initialState.charts;
           state.error = action.payload;
           state.pending = false;
         }
